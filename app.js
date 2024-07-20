@@ -22,7 +22,20 @@ function createPassword(){
     passwordBox.value = password;
 }
 
-function copyPassword(){
+/*function copyPassword(){
     passwordBox.select();
     Document.execCommand("copy");
-}
+} */
+
+    function copyPassword() {
+        const password = passwordBox.value; // Get the password value
+    
+        navigator.clipboard.writeText(password)
+            .then(() => {
+                // Optionally display a success message
+                console.log('Password copied to clipboard!'); 
+            })
+            .catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+    }
